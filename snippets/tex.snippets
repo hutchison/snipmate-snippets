@@ -16,7 +16,7 @@ snippet dmo
 # \begin{}...\end{}
 snippet begin
 	\begin{${1:env}}
-		${0}
+		${2}
 	\end{$1}
 # Tabular
 snippet tab
@@ -34,7 +34,7 @@ snippet center
 # Align(ed)
 snippet ali
 	\begin{align${1:ed}}
-		${0}
+		${2}
 	\end{align$1}
 # Gather(ed)
 snippet gat
@@ -59,24 +59,24 @@ snippet \
 # Equation array
 snippet eqnarray
 	\begin{eqnarray}
-		${0}
+		${1}
 	\end{eqnarray}
 # Enumerate
 snippet enum
 	\begin{enumerate}
-		\item ${0}
+		\item ${1}
 	\end{enumerate}
 # Itemize
 snippet itemize
 	\begin{itemize}
-		\item ${0}
+		\item ${1}
 	\end{itemize}
 snippet item
 	\item ${1}
 # Description
 snippet desc
 	\begin{description}
-		\item[${1}] ${0}
+		\item[${1}] ${2}
 	\end{description}
 # Endless new item
 snippet ]i
