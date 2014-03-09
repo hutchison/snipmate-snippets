@@ -58,6 +58,12 @@ snippet deft
 	def test_${1:case_name}
 		${0}
 	end
+snippet descendants
+	class Class
+		def descendants
+			ObjectSpace.each_object(::Class).select {|klass| klass < self }
+		end
+	end
 snippet if
 	if ${1:condition}
 		${0}
@@ -168,7 +174,7 @@ snippet ana
 	accepts_nested_attributes_for :${0:association}
 # ivc == instance variable cache
 snippet ivc
-	@${1:variable_name} ||= ${0:chached_value}
+	@${1:variable_name} ||= ${0:cached_value}
 # include Enumerable
 snippet Enum
 	include Enumerable
@@ -585,6 +591,8 @@ snippet debug
 	require 'ruby-debug'; debugger; true;
 snippet pry
 	require 'pry'; binding.pry
+snippet strf
+	strftime("${1:%Y-%m-%d %H:%M:%S %z}")${0}
 #############################################
 # Rails snippets - for pure Ruby, see above #
 #############################################
@@ -612,6 +620,8 @@ snippet asrj
 	assert_rjs :${1:replace}, "${0:dom id}"
 snippet ass assert_select(..)
 	assert_select '${1:path}', :${2:text} => '${3:inner_html' ${4:do}
+snippet ba
+	before_action :${0:method}
 snippet bf
 	before_filter :${0:method}
 snippet bt
@@ -987,8 +997,10 @@ snippet s.
 snippet spec
 	specify { subject.${0} }
 snippet exp
+	expect(${1:object}).to ${0}
+snippet expb
 	expect { ${1:object} }.to ${0}
-snippet raise
+snippet experr
 	expect { ${1:object} }.to raise_error ${2:StandardError}, /${0:message_regex}/
 snippet shared
 	shared_examples ${0:"shared examples name"}
